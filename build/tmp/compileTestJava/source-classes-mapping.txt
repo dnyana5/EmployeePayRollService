@@ -1,4 +1,7 @@
 javashowcase/FilesUtils.java
  javashowcase.FilesUtils
+javashowcase/Java8WatchServiceExample.java
+ javashowcase.Java8WatchServiceExample
+ javashowcase.Java8WatchServiceExample$1
 javashowcase/NIOFileAPITest.java
  javashowcase.NIOFileAPITest
