@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.employeepayroll.EmployeePayrollFileIOService.PAYROLL_FILE_NAME;
-
 public class EmployeePayrollService {
 
+
+    private IOService ioService;
 
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_IO}
 
@@ -45,6 +45,14 @@ public class EmployeePayrollService {
         else if(ioService.equals(IOService.FILE_IO))
          new EmployeePayrollFileIOService().writeData(employeePayrollList);
     }
+    long readEmployeePayrollData(IOService ioService) {
+        this.ioService = ioService;
+        if (ioService.equals(EmployeePayrollService.IOService.FILE_IO))
+            this.employeePayrollList = new EmployeePayrollFileIOService().readData();
+        return employeePayrollList.size();
+    }
+
+
     public void printData(IOService ioService) {
         if (ioService.equals(IOService.FILE_IO))
             new EmployeePayrollFileIOService().printData();

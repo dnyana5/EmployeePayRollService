@@ -2,9 +2,9 @@ package com.employeepayroll;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePayrollFileIOService {
@@ -38,5 +38,14 @@ public class EmployeePayrollFileIOService {
         } catch (IOException e) {
             e.printStackTrace();
         } return entries;
+    }
+    public List<EmployeePayrollData> readData() {
+        List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
+        try {
+            Files.lines(new File("payroll-file.txt").toPath()).map(line -> line.trim())
+                    .forEach(line -> System.out.println(line));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } return employeePayrollList;
     }
 }
